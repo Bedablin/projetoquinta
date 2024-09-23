@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712296066719",
+    "project_id": "integrador-1-e0c00",
+    "storage_bucket": "integrador-1-e0c00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712296066719:android:50e0d8f65e589e3119bcaa",
+        "android_client_info": {
+          "package_name": "com.example.idosologin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtxTEAtX6eyx9N_XyZP1JQl4tufAfpISI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
