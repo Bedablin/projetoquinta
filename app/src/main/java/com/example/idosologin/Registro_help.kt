@@ -46,23 +46,20 @@ class Registro_help : AppCompatActivity() {
             val phone = binding.addInput.text.toString()
             val db = Firebase.firestore
 
-            val cuidador = mapOf(
-                "email" to email,
-                "senha" to pass,
-                "nome cuidador" to name,
-                "endereço" to address,
-                "telefone" to phone)
-            val cuidadorRef = db.collection("cuidador")
-            cuidadorRef.document(email).set(cuidador)
-
-
-
-
-
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
                 firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
+
+                        val cuidador = mapOf(
+                            "email" to email,
+                            "senha" to pass,
+                            "nome cuidador" to name,
+                            "endereço" to address,
+                            "telefone" to phone)
+                        val cuidadorRef = db.collection("cuidador")
+                        cuidadorRef.document(email).set(cuidador)
+
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {

@@ -45,23 +45,20 @@ class Registro : AppCompatActivity() {
                 val phone = binding.addInput.text.toString()
                 val db = Firebase.firestore
 
-                val idoso = mapOf(
-                    "email" to email,
-                    "senha" to pass,
-                    "nome idoso" to name,
-                    "endereço" to address,
-                    "telefone" to phone)
-                val idosoRef = db.collection("idoso")
-                idosoRef.document(email).set(idoso)
-
-
-
-
-
 
                 if (email.isNotEmpty() && pass.isNotEmpty()) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
+
+                            val idoso = mapOf(
+                                "email" to email,
+                                "senha" to pass,
+                                "nome idoso" to name,
+                                "endereço" to address,
+                                "telefone" to phone)
+                            val idosoRef = db.collection("idoso")
+                            idosoRef.document(email).set(idoso)
+
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                         } else {
