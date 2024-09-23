@@ -35,7 +35,7 @@ class RegisChoice : AppCompatActivity() {
         }
 
         helpButton.setOnClickListener {
-            startActivity(Intent(this, menuCuidador::class.java))
+            startActivity(Intent(this, Registro_help::class.java))
         }
     }
 }

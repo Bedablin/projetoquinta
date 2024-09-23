@@ -1,10 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registro_help">
+    android:background="@drawable/login_background"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="715dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/oldmanlogo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:hint="Registro"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            android:textSize="50sp" />
+
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            android:textSize="20dp"
+            android:drawableEnd="@drawable/baseline_email_24"
+            android:drawablePadding="20dp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:drawableEnd="@drawable/baseline_remove_red_eye_24"
+            android:textColorHint="@color/black"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="Nome do Cuidador"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+
+            android:textColorHint="@color/black"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/add_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="Endereço"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+
+            android:textColorHint="@color/black"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/nameY_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="Telefone"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            android:textSize="20dp" />
+
+
+        <Button
+            android:id="@+id/registrue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:padding="5dp"
+            android:text="Registrar-se"
+            android:textColor="#108FF4"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
