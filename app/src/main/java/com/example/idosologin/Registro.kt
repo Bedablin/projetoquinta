@@ -40,17 +40,19 @@ class Registro : AppCompatActivity() {
 
                 val email = binding.emailInput.text.toString()
                 val pass = binding.passwordInput.text.toString()
-                val nameX = binding.nameXInput.text.toString()
-                val nameY = binding.nameYInput.text.toString()
+                val name = binding.nameInput.text.toString()
+                val address = binding.addInput.text.toString()
+                val phone = binding.addInput.text.toString()
                 val db = Firebase.firestore
 
-                val user = mapOf(
+                val idoso = mapOf(
                     "email" to email,
                     "senha" to pass,
-                    "nome idoso" to nameX,
-                    "nome cuidador" to nameY)
-                val userRef = db.collection("user")
-                userRef.document(email).set(user)
+                    "nome idoso" to name,
+                    "endereço" to address,
+                    "telefone" to phone)
+                val idosoRef = db.collection("idoso")
+                idosoRef.document(email).set(idoso)
 
 
 

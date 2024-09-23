@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         regisBtn.setOnClickListener {
             Log.d("Registro", "Botão de registro clicado")
-            val intent = Intent(this, Registro::class.java)
+            val intent = Intent(this, RegisChoice::class.java)
             startActivity(intent)
         }
 
