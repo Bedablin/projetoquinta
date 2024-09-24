@@ -56,7 +56,8 @@ class Registro_help : AppCompatActivity() {
                             "senha" to pass,
                             "nome cuidador" to name,
                             "endereço" to address,
-                            "telefone" to phone)
+                            "telefone" to phone,
+                            "flag cuidador" to true)
                         val cuidadorRef = db.collection("cuidador")
                         cuidadorRef.document(email).set(cuidador)
 
