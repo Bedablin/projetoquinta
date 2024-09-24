@@ -6,9 +6,11 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 
 class menuCuidador : AppCompatActivity() {
 
@@ -17,6 +19,10 @@ class menuCuidador : AppCompatActivity() {
     private lateinit var updateEmailButton: Button
     private lateinit var deleteAccountButton: Button
     private lateinit var logoutButton: Button
+
+    val db = FirebaseFirestore.getInstance()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +36,7 @@ class menuCuidador : AppCompatActivity() {
         logoutButton = findViewById(R.id.btnLogout)
 
 
+
         loadUserInfo()
 
 
@@ -39,7 +46,27 @@ class menuCuidador : AppCompatActivity() {
 
 
         deleteAccountButton.setOnClickListener {
-            deleteAccount()
+            // Create an AlertDialog Builder
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Confirmação")
+            builder.setMessage("Tem certeza que quer deletar a conta?")
+
+            // Set positive button (Yes)
+            builder.setPositiveButton("Sim") { dialog, _ ->
+                deleteAccount()
+                db.collection("cuidador").document("${MainActivity.GlobalData.ultEmail}")
+                    .delete()
+                dialog.dismiss()
+            }
+
+            // Set negative button (No)
+            builder.setNegativeButton("Não") { dialog, _ ->
+                // Do nothing, just dismiss the dialog
+                dialog.dismiss()
+            }
+
+            // Show the dialog
+            builder.show()
         }
 
 
@@ -49,7 +76,6 @@ class menuCuidador : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-
     }
 
     private fun loadUserInfo() {
@@ -74,6 +100,11 @@ class menuCuidador : AppCompatActivity() {
 
             user?.updateEmail(newEmail)?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    val documentRef = db.collection("cuidador").document("${MainActivity.GlobalData.ultEmail}")
+                    val updatedEmail = hashMapOf<String, Any>(
+                        "email" to newEmail
+                    )
+                    documentRef.update(updatedEmail)
                     Toast.makeText(this, "Email atualizado com sucesso", Toast.LENGTH_SHORT).show()
                     Log.d("UpdateEmail", "Email atualizado para: $newEmail")
                 } else {

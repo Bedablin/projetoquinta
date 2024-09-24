@@ -100,6 +100,11 @@ class menuIdoso : AppCompatActivity() {
 
             user?.updateEmail(newEmail)?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    val documentRef = db.collection("idoso").document("${MainActivity.GlobalData.ultEmail}")
+                    val updatedEmail = hashMapOf<String, Any>(
+                        "email" to newEmail
+                    )
+                    documentRef.update(updatedEmail)
                     Toast.makeText(this, "Email atualizado com sucesso", Toast.LENGTH_SHORT).show()
                     Log.d("UpdateEmail", "Email atualizado para: $newEmail")
                 } else {
