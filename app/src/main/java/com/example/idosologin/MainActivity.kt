@@ -13,6 +13,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
+    object GlobalData {
+        var ultEmail: String? = null
+    }
+
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var emailInput: EditText
     private lateinit var passwordInput: EditText
@@ -44,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Login", "Email e senha preenchidos")
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
+                        GlobalData.ultEmail = email
                         Log.d("Login", "Login bem-sucedido")
                         Toast.makeText(this, "Login bem-sucedido", Toast.LENGTH_SHORT).show()
 
