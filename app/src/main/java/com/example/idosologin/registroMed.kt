@@ -50,8 +50,8 @@ class registroMed : AppCompatActivity() {
                 "Dosagem" to dosage,
                 "Duração" to duration,
                 "Informação add" to info)
-            val idosoRef = db.collection("idoso")
-            idosoRef.document(medName).set(medicamento)
+            val medRef = db.collection("medicamento")
+            medRef.document(medName).set(medicamento)
 
             val intent = Intent(this, menuCuidador::class.java)
             startActivity(intent)

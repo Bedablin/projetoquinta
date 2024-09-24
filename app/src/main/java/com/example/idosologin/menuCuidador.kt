@@ -79,6 +79,10 @@ class menuCuidador : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+
+        medRegButton.setOnClickListener {
+            startActivity(Intent(this, registroMed::class.java))
+        }
     }
 
     private fun loadUserInfo() {
