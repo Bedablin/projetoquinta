@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.idosologin.R.id.regMedbtn2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,6 +20,7 @@ class menuCuidador : AppCompatActivity() {
     private lateinit var updateEmailButton: Button
     private lateinit var deleteAccountButton: Button
     private lateinit var logoutButton: Button
+    private lateinit var medRegButton: Button
 
     val db = FirebaseFirestore.getInstance()
 
@@ -34,6 +36,7 @@ class menuCuidador : AppCompatActivity() {
         updateEmailButton = findViewById(R.id.btnUpdateEmail)
         deleteAccountButton = findViewById(R.id.btnDeleteAccount)
         logoutButton = findViewById(R.id.btnLogout)
+        medRegButton = findViewById(regMedbtn2)
 
 
 

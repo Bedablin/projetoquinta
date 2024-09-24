@@ -19,6 +19,7 @@ class menuIdoso : AppCompatActivity() {
     private lateinit var updateEmailButton: Button
     private lateinit var deleteAccountButton: Button
     private lateinit var logoutButton: Button
+    private lateinit var medRegButton: Button
 
     val db = FirebaseFirestore.getInstance()
 
@@ -34,6 +35,7 @@ class menuIdoso : AppCompatActivity() {
         updateEmailButton = findViewById(R.id.btnUpdateEmail2)
         deleteAccountButton = findViewById(R.id.btnDeleteAccount2)
         logoutButton = findViewById(R.id.btnLogout2)
+        medRegButton = findViewById(R.id.regMedbtn)
 
 
 
@@ -46,12 +48,10 @@ class menuIdoso : AppCompatActivity() {
 
 
         deleteAccountButton.setOnClickListener {
-            // Create an AlertDialog Builder
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Confirmação")
             builder.setMessage("Tem certeza que quer deletar a conta?")
 
-            // Set positive button (Yes)
             builder.setPositiveButton("Sim") { dialog, _ ->
                 deleteAccount()
                 db.collection("idoso").document("${MainActivity.GlobalData.ultEmail}")
@@ -59,13 +59,10 @@ class menuIdoso : AppCompatActivity() {
                 dialog.dismiss()
             }
 
-            // Set negative button (No)
             builder.setNegativeButton("Não") { dialog, _ ->
-                // Do nothing, just dismiss the dialog
                 dialog.dismiss()
             }
 
-            // Show the dialog
             builder.show()
         }
 

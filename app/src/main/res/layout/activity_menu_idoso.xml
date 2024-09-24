@@ -40,6 +40,18 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/regMedbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserEmail2"
+        android:layout_marginTop="266dp"
+        android:backgroundTint="@color/white"
+        android:padding="30dp"
+        android:text="Registrar Medicamentos"
+        android:textColor="#108FF4"
+        android:textSize="20dp" />
+
+    <Button
         android:id="@+id/btnLogout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,12 +66,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnUpdateEmail2"
-        android:layout_marginTop="481dp"
+        android:layout_marginTop="478dp"
         android:backgroundTint="@color/white"
         android:text="Excluir Conta"
         android:textColor="@android:color/holo_red_light" />
-
-
 
 
 </RelativeLayout>
