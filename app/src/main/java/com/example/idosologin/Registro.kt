@@ -55,7 +55,8 @@ class Registro : AppCompatActivity() {
                                 "senha" to pass,
                                 "nome idoso" to name,
                                 "endereço" to address,
-                                "telefone" to phone)
+                                "telefone" to phone,
+                                "flag cuidador" to false)
                             val idosoRef = db.collection("idoso")
                             idosoRef.document(email).set(idoso)
 

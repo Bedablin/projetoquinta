@@ -56,24 +56,27 @@ class MainActivity : AppCompatActivity() {
                                         if (fieldValue == true) {
                                             val intent = Intent(this, menuCuidador::class.java)
                                             startActivity(intent)
-                                            finish()
-                                        } else if (fieldValue == false) {
-                                            val intent = Intent(this, menuIdoso::class.java)
-                                            startActivity(intent)
-                                            finish()
-                                        } else {
-                                            Log.e(
-                                                "Login",
-                                                "Erro no login: ${task.exception?.message}"
-                                            )
-                                            Toast.makeText(
-                                                this,
-                                                "Erro no login: ${task.exception?.message}",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+                                            finish()}
                                         }
+                                }else {
+                                    val flagRef = db.collection("idoso").document("$email")
+                                    flagRef.get()
+                                        .addOnSuccessListener { document ->
+                                            if (document.exists()) {
+                                                if (document.contains("flag cuidador")) {
+                                                    val fieldValue = document.getBoolean("flag cuidador")
+                                                    if (fieldValue == false) {
+                                                        val intent = Intent(this, menuIdoso::class.java)
+                                                        startActivity(intent)
+                                                        finish()
+                                                    }
+
+
+                                                }
+                                            }
                                     }
                                 }
+
                             }
                     }
                 }
