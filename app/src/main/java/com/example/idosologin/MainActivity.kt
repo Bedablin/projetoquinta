@@ -60,13 +60,14 @@ class MainActivity : AppCompatActivity() {
                                     if (document.contains("flag cuidador")) {
                                         val fieldValue = document.getBoolean("flag cuidador")
                                         if (fieldValue == true) {
-
-                                            val nameRef = db.collection("cuidador").document("$email")
+                                            val nameRef =
+                                                db.collection("cuidador").document("$email")
                                             nameRef.get()
                                                 .addOnSuccessListener { document ->
                                                     if (document.exists()) {
                                                         if (document.contains("nome cuidador")) {
-                                                            GlobalData.ultName = document.getString("nome cuidador")
+                                                            GlobalData.ultName =
+                                                                document.getString("nome cuidador")
 
 
                                                         }
@@ -76,33 +77,37 @@ class MainActivity : AppCompatActivity() {
 
                                             val intent = Intent(this, menuCuidador::class.java)
                                             startActivity(intent)
-                                            finish()}
+                                            finish()
                                         }
-                                }else {
-                                    val flagRef = db.collection("idoso").document("$email")
-                                    flagRef.get()
-                                        .addOnSuccessListener { document ->
-                                            if (document.exists()) {
-                                                if (document.contains("flag cuidador")) {
-                                                    val fieldValue = document.getBoolean("flag cuidador")
-                                                    if (fieldValue == false) {
-                                                        val intent = Intent(this, menuIdoso::class.java)
-                                                        startActivity(intent)
-                                                        finish()
-                                                    }
-
-
-                                                }
-                                            }
                                     }
                                 }
-
                             }
+                        val flagRef2 = db.collection("idoso").document("$email")
+                        flagRef2.get()
+                            .addOnSuccessListener { document ->
+                                if (document.exists()) {
+                                    if (document.contains("flag cuidador")) {
+                                        val fieldValue = document.getBoolean("flag cuidador")
+                                        if (fieldValue == false) {
+                                            val intent = Intent(this, menuIdoso::class.java)
+                                            startActivity(intent)
+                                            finish()
+                                        }
+
+
+                                    }
+                                }
+                        }
+
+
+
+
+
+                    }else {
+                        Log.d("Login", "Campos de email ou senha vazios")
+                        Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
                     }
-                }
-            }else {
-                    Log.d("Login", "Campos de email ou senha vazios")
-                    Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+        }
             }
         }
 

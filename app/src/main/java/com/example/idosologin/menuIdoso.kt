@@ -20,6 +20,7 @@ class menuIdoso : AppCompatActivity() {
     private lateinit var deleteAccountButton: Button
     private lateinit var logoutButton: Button
     private lateinit var medRegButton: Button
+    private lateinit var anamButton: Button
 
     val db = FirebaseFirestore.getInstance()
 
@@ -36,6 +37,7 @@ class menuIdoso : AppCompatActivity() {
         deleteAccountButton = findViewById(R.id.btnDeleteAccount2)
         logoutButton = findViewById(R.id.btnLogout2)
         medRegButton = findViewById(R.id.regMedbtn)
+        anamButton = findViewById(R.id.btnAnam)
 
 
 
@@ -72,6 +74,11 @@ class menuIdoso : AppCompatActivity() {
             firebaseAuth.signOut()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+
+        anamButton.setOnClickListener {
+            setContentView(R.layout.anamnese)
+
         }
     }
 
@@ -135,4 +142,6 @@ class menuIdoso : AppCompatActivity() {
             Log.e("DeleteAccount", "Tentativa de excluir conta sem usuário autenticado")
         }
     }
+
 }
+

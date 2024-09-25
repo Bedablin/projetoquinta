@@ -7,7 +7,7 @@
     >
 
     <TextView
-        android:id="@+id/tvUserEmailLabel"
+        android:id="@+id/tvUserEmailLabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email:"
@@ -21,8 +21,8 @@
         android:id="@+id/etUserEmail2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/tvUserEmailLabel"
-        android:layout_alignBaseline="@id/tvUserEmailLabel"
+        android:layout_toEndOf="@id/tvUserEmailLabel2"
+        android:layout_alignBaseline="@id/tvUserEmailLabel2"
         android:layout_marginTop="100dp"
         android:layout_marginStart="8dp"
         android:inputType="textEmailAddress" />
@@ -40,11 +40,33 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/btnAnam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserEmail2"
+        android:layout_marginTop="66dp"
+        android:backgroundTint="@color/white"
+        android:text="Gerenciar Anamnese"
+        android:textColor="#108FF4" />
+
+    <Button
+        android:id="@+id/Medbtn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserEmail2"
+        android:layout_marginTop="215dp"
+        android:backgroundTint="@color/white"
+        android:padding="30dp"
+        android:text="Ver Medicamentos"
+        android:textColor="#108FF4"
+        android:textSize="20dp" />
+
+    <Button
         android:id="@+id/regMedbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etUserEmail2"
-        android:layout_marginTop="266dp"
+        android:layout_marginTop="309dp"
         android:backgroundTint="@color/white"
         android:padding="30dp"
         android:text="Registrar Medicamentos"
@@ -70,7 +92,6 @@
         android:backgroundTint="@color/white"
         android:text="Excluir Conta"
         android:textColor="@android:color/holo_red_light" />
-
 
 
 </RelativeLayout>
