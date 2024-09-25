@@ -34,6 +34,7 @@ class MedInfo : AppCompatActivity() {
         setContentView(R.layout.activity_med_info)
 
         binding = ActivityMedInfoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         medName = findViewById(R.id.mednameshow)
         medDose = findViewById(R.id.dosage_input)
