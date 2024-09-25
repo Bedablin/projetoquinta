@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import com.example.idosologin.databinding.ActivityRegistroMedBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -59,12 +60,10 @@ class Medicamentos : AppCompatActivity() {
                 listView.setOnItemClickListener { parent, view, position, id ->
 
 
-                    val selectedItem = trueLista[position]
+                    MainActivity.GlobalData.ultMedName = trueLista[position]
 
-                    intent.putExtra("SELECTED_ITEM", selectedItem)
                     startActivity(Intent(this, MedInfo::class.java))
                     finish()
-
 
 
 

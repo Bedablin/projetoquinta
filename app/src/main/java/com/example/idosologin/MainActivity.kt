@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     object GlobalData {
         var ultEmail: String? = null
         var ultName: String? = null
+        var ultMedName: String? = null
     }
 
     private lateinit var firebaseAuth: FirebaseAuth

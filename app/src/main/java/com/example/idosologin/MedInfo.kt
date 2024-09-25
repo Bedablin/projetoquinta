@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.idosologin.databinding.ActivityMedInfoBinding
 import com.example.idosologin.databinding.ActivityRegistroMedBinding
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,17 +26,14 @@ class MedInfo : AppCompatActivity() {
     private lateinit var medInfo: EditText
     private lateinit var medSave: Button
     private lateinit var medDel: Button
-    private lateinit var binding: ActivityRegistroMedBinding
+    private lateinit var binding: ActivityMedInfoBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_med_info)
 
-        val selectedItem = intent.getStringExtra("SELECTED_ITEM")
-
-
-        binding = ActivityRegistroMedBinding.inflate(layoutInflater)
+        binding = ActivityMedInfoBinding.inflate(layoutInflater)
 
         medName = findViewById(R.id.mednameshow)
         medDose = findViewById(R.id.dosage_input)
@@ -44,6 +42,7 @@ class MedInfo : AppCompatActivity() {
         medSave = findViewById(R.id.medsave_btn)
         medDel = findViewById(R.id.meddel_btn)
 
+
         loadMedName()
         loadMedDose()
         loadMedDur()
@@ -51,13 +50,16 @@ class MedInfo : AppCompatActivity() {
 
         medSave.setOnClickListener {
 
+            val medDoseX = binding.dosageInput.text.toString()
+            val medDurX = binding.durationInput.text.toString()
+            val medInfoX = binding.infoInput.text.toString()
+
             val medicamento = mapOf(
-                "Nome" to medName,
-                "Dosagem" to medDose,
-                "Duração" to medDur,
-                "Informação add" to medInfo)
+                "Dosagem" to medDoseX,
+                "Duração" to medDurX,
+                "Informação add" to medInfoX)
             val medRef = firestore.collection("medicamento")
-            medRef.document("$medName").update(medicamento)
+            medRef.document("${MainActivity.GlobalData.ultMedName}").update(medicamento)
 
             val intent = Intent(this, Medicamentos::class.java)
             startActivity(intent)
@@ -67,15 +69,14 @@ class MedInfo : AppCompatActivity() {
 
     private fun loadMedName() {
 
-        val selectedItem = intent.getStringExtra("SELECTED_ITEM")
         val medCollectionRef = firestore.collection("medicamento")
         medCollectionRef.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     if (document.contains("Nome")) {
                         val mdNome = document.get("Nome")
-                        if(mdNome == selectedItem) {
-                            medName.setText(selectedItem)
+                        if(mdNome == MainActivity.GlobalData.ultMedName) {
+                            medName.text = MainActivity.GlobalData.ultMedName.toString()
                         }
                     }
                 }
@@ -88,9 +89,12 @@ class MedInfo : AppCompatActivity() {
         medCollectionRef.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    if (document.contains("Dosagem")) {
-                        val mdDose = document.getString("Dosagem")
-                        medDose.setText(mdDose)
+                    if (document.contains("Nome")) {
+                        val mdName = document.get("Nome")
+                        if (mdName == MainActivity.GlobalData.ultMedName) {
+                            val mdDose = document.getString("Dosagem")
+                            medDose.setText(mdDose)
+                        }
                     }
                 }
             }
@@ -102,9 +106,12 @@ class MedInfo : AppCompatActivity() {
         medCollectionRef.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    if (document.contains("Duração")) {
-                        val mdDur = document.getString("Duração")
-                        medDur.setText(mdDur)
+                    if (document.contains("Nome")) {
+                        val mdName = document.get("Nome")
+                        if (mdName == MainActivity.GlobalData.ultMedName) {
+                            val mdDur = document.getString("Duração")
+                            medDur.setText(mdDur)
+                        }
                     }
                 }
             }
@@ -116,9 +123,12 @@ class MedInfo : AppCompatActivity() {
         medCollectionRef.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    if (document.contains("Informação add")) {
-                        val mdInfo = document.getString("Informação add")
-                        medInfo.setText(mdInfo)
+                    if (document.contains("Nome")) {
+                        val mdName = document.get("Nome")
+                        if (mdName == MainActivity.GlobalData.ultMedName) {
+                            val mdInfo = document.getString("Informação add")
+                            medInfo.setText(mdInfo)
+                        }
                     }
                 }
             }
