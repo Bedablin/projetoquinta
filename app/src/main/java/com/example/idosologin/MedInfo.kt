@@ -66,6 +66,15 @@ class MedInfo : AppCompatActivity() {
             startActivity(intent)
 
         }
+
+
+        medDel.setOnClickListener {
+            val medRef = firestore.collection("medicamento")
+            medRef.document("${MainActivity.GlobalData.ultMedName}").delete()
+            val intent = Intent(this, Medicamentos::class.java)
+            startActivity(intent)
+
+        }
     }
 
     private fun loadMedName() {
