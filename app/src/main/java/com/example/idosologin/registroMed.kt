@@ -42,6 +42,7 @@ class registroMed : AppCompatActivity() {
             val dosage = binding.dosageInput.text.toString()
             val duration = binding.durationInput.text.toString()
             val info = binding.infoInput.text.toString()
+            val creator = MainActivity.GlobalData.ultName
             val db = Firebase.firestore
 
 
@@ -49,9 +50,10 @@ class registroMed : AppCompatActivity() {
                 "Nome" to medName,
                 "Dosagem" to dosage,
                 "Duração" to duration,
-                "Informação add" to info)
+                "Informação add" to info,
+                "Criador do medicamento" to creator)
             val medRef = db.collection("medicamento")
-            medRef.document(medName).set(medicamento)
+            medRef.document().set(medicamento)
 
             val intent = Intent(this, menuCuidador::class.java)
             startActivity(intent)

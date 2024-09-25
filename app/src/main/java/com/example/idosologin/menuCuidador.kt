@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
+
+
 class menuCuidador : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -41,6 +43,7 @@ class menuCuidador : AppCompatActivity() {
 
 
         loadUserInfo()
+
 
 
         updateEmailButton.setOnClickListener {

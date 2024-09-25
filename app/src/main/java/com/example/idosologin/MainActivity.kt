@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     object GlobalData {
         var ultEmail: String? = null
+        var ultName: String? = null
     }
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -59,6 +60,20 @@ class MainActivity : AppCompatActivity() {
                                     if (document.contains("flag cuidador")) {
                                         val fieldValue = document.getBoolean("flag cuidador")
                                         if (fieldValue == true) {
+
+                                            val nameRef = db.collection("cuidador").document("$email")
+                                            nameRef.get()
+                                                .addOnSuccessListener { document ->
+                                                    if (document.exists()) {
+                                                        if (document.contains("nome cuidador")) {
+                                                            GlobalData.ultName = document.getString("nome cuidador")
+
+
+                                                        }
+                                                    }
+                                                }
+
+
                                             val intent = Intent(this, menuCuidador::class.java)
                                             startActivity(intent)
                                             finish()}
