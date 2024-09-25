@@ -13,14 +13,23 @@ import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.time.Duration
 
 class Medicamentos : AppCompatActivity() {
 
     val firestore = FirebaseFirestore.getInstance()
+    lateinit var medName: EditText
+    lateinit var medDose: EditText
+    lateinit var medDur:EditText
+    lateinit var medInfo: EditText
+    lateinit var medSave: Button
+    lateinit var medDel: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medicamentos)
+
+
 
         val medCollectionRef = firestore.collection("medicamento")
 
@@ -29,10 +38,14 @@ class Medicamentos : AppCompatActivity() {
         medCollectionRef.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    val nombre = document.getString("Nome")
-                    mutableList.add("$nombre")
+                    if (document.contains("Criador do medicamento")) {
+                        val nombreCriador = document.getString(("Criador do medicamento"))
+                        if (nombreCriador == MainActivity.GlobalData.ultName) {
+                            val nombre = document.getString("Nome")
+                            mutableList.add("$nombre")
+                        }
+                    }
                 }
-
 
 
                 val listView: ListView = findViewById(R.id.listView)
@@ -47,10 +60,13 @@ class Medicamentos : AppCompatActivity() {
 
                 // Handle item clicks
                 listView.setOnItemClickListener { parent, view, position, id ->
-                    // Get the selected item
                     val selectedItem = trueLista[position]
+                    setContentView(R.layout.activity_medinfo)
 
-                    // Show a Toast message
+                    medName = findViewById(R.id.mednameshow)
+
+
+
                     Toast.makeText(this, "Clicked: $selectedItem", Toast.LENGTH_SHORT).show()
                 }
             }
