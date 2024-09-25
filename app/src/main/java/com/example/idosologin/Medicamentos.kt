@@ -57,14 +57,13 @@ class Medicamentos : AppCompatActivity() {
 
                 // quando clica no medicamento específico
                 listView.setOnItemClickListener { parent, view, position, id ->
-                    val intent = Intent(this, MedInfo::class.java)
 
 
                     val selectedItem = trueLista[position]
 
-                    //intent.putExtra("SELECTED_ITEM", selectedItem)
-                    Toast.makeText(this, "Clicked: $selectedItem", Toast.LENGTH_SHORT).show()
-                    startActivity(intent)
+                    intent.putExtra("SELECTED_ITEM", selectedItem)
+                    startActivity(Intent(this, MedInfo::class.java))
+                    finish()
 
 
 

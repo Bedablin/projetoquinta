@@ -92,6 +92,7 @@ class menuCuidador : AppCompatActivity() {
 
         medRegButton.setOnClickListener {
             startActivity(Intent(this, registroMed::class.java))
+
         }
     }
 
