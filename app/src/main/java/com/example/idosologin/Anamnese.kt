@@ -56,11 +56,6 @@ class Anamnese : AppCompatActivity() {
                 val anam = documentSnapshot.getString("anamnese")
                 anamInput.setText(anam)
             }
-
-
-
-
-
     }
 }
 

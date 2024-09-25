@@ -18,12 +18,9 @@ import kotlin.time.Duration
 class Medicamentos : AppCompatActivity() {
 
     val firestore = FirebaseFirestore.getInstance()
-    lateinit var medName: EditText
-    lateinit var medDose: EditText
-    lateinit var medDur:EditText
-    lateinit var medInfo: EditText
-    lateinit var medSave: Button
-    lateinit var medDel: Button
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,22 +49,26 @@ class Medicamentos : AppCompatActivity() {
 
                 val trueLista = mutableList.toTypedArray()
 
-                // Create an ArrayAdapter using the string array and a default ListView layout
+
                 val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, trueLista)
 
-                // Attach the adapter to the ListView
+
                 listView.adapter = adapter
 
-                // Handle item clicks
+                // quando clica no medicamento específico
                 listView.setOnItemClickListener { parent, view, position, id ->
+                    val intent = Intent(this, MedInfo::class.java)
+
+
                     val selectedItem = trueLista[position]
-                    setContentView(R.layout.activity_medinfo)
 
-                    medName = findViewById(R.id.mednameshow)
-
-
-
+                    //intent.putExtra("SELECTED_ITEM", selectedItem)
                     Toast.makeText(this, "Clicked: $selectedItem", Toast.LENGTH_SHORT).show()
+                    startActivity(intent)
+
+
+
+
                 }
             }
     }
