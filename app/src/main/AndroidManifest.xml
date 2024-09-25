@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Idosologin"
         tools:targetApi="31">
         <activity
+            android:name=".Medicamentos"
+            android:exported="false" />
+        <activity
             android:name=".registroMed"
             android:exported="false" />
         <activity

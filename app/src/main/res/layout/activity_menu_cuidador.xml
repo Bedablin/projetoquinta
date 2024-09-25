@@ -40,11 +40,23 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/Medbtn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserEmail"
+        android:layout_marginTop="215dp"
+        android:backgroundTint="@color/white"
+        android:padding="30dp"
+        android:text="Ver Medicamentos"
+        android:textColor="#108FF4"
+        android:textSize="20dp" />
+
+    <Button
         android:id="@+id/regMedbtn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etUserEmail"
-        android:layout_marginTop="266dp"
+        android:layout_marginTop="309dp"
         android:backgroundTint="@color/white"
         android:padding="30dp"
         android:text="Registrar Medicamentos"

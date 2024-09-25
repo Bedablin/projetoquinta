@@ -23,6 +23,7 @@ class menuCuidador : AppCompatActivity() {
     private lateinit var deleteAccountButton: Button
     private lateinit var logoutButton: Button
     private lateinit var medRegButton: Button
+    private lateinit var medButton: Button
 
     val db = FirebaseFirestore.getInstance()
 
@@ -39,6 +40,7 @@ class menuCuidador : AppCompatActivity() {
         deleteAccountButton = findViewById(R.id.btnDeleteAccount)
         logoutButton = findViewById(R.id.btnLogout)
         medRegButton = findViewById(regMedbtn2)
+        medButton = findViewById(R.id.Medbtn2)
 
 
 
@@ -81,6 +83,11 @@ class menuCuidador : AppCompatActivity() {
             firebaseAuth.signOut()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+
+
+        medButton.setOnClickListener {
+            startActivity(Intent(this, Medicamentos::class.java))
         }
 
         medRegButton.setOnClickListener {
