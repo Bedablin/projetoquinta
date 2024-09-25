@@ -77,9 +77,10 @@ class menuIdoso : AppCompatActivity() {
         }
 
         anamButton.setOnClickListener {
-            setContentView(R.layout.anamnese)
-
+            startActivity(Intent(this, Anamnese::class.java))
+            finish()
         }
+
     }
 
     private fun loadUserInfo() {

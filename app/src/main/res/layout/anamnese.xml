@@ -10,14 +10,25 @@
 
     <EditText
         android:id="@+id/anamInput"
-        android:layout_width="match_parent"
-        android:layout_height="692dp"
-        android:background="@color/white"
+        android:layout_width="378dp"
+        android:layout_height="653dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/white"
+        android:gravity="left"
         android:hint="Enter text here"
         android:padding="12dp"
         android:textColor="#000000"
         android:textColorHint="#9E9E9E"
         android:textSize="18sp"
-        android:gravity="left"/>
+        />
+
+    <Button
+        android:id="@+id/btnAnamSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:backgroundTint="@color/white"
+        android:text="Salvar Anamnese"
+        android:textColor="#108FF4" />
 
 </LinearLayout>
