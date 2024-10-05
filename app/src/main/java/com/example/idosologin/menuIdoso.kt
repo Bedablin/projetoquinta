@@ -21,6 +21,7 @@ class menuIdoso : AppCompatActivity() {
     private lateinit var logoutButton: Button
     private lateinit var medRegButton: Button
     private lateinit var anamButton: Button
+    private lateinit var medButton: Button
 
     val db = FirebaseFirestore.getInstance()
 
@@ -38,6 +39,7 @@ class menuIdoso : AppCompatActivity() {
         logoutButton = findViewById(R.id.btnLogout2)
         medRegButton = findViewById(R.id.regMedbtn)
         anamButton = findViewById(R.id.btnAnam)
+        medButton = findViewById(R.id.Medbtn2)
 
 
 
@@ -79,6 +81,15 @@ class menuIdoso : AppCompatActivity() {
         anamButton.setOnClickListener {
             startActivity(Intent(this, Anamnese::class.java))
             finish()
+        }
+
+        medButton.setOnClickListener {
+            startActivity(Intent(this, Medicamentos::class.java))
+        }
+
+        medRegButton.setOnClickListener {
+            startActivity(Intent(this, registroMed::class.java))
+
         }
 
     }
