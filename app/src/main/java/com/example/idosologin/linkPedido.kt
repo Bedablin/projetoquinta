@@ -8,7 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.idosologin.databinding.ActivityRegistroBinding
+import com.example.idosologin.databinding.ActivityLinkPedidoBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -17,7 +17,7 @@ import com.google.firebase.firestore.firestore
 
 class linkPedido : AppCompatActivity() {
 
-    private lateinit var binding: ActivityRegistroBinding
+    private lateinit var binding: ActivityLinkPedidoBinding
     private lateinit var linkBtn: Button
 
 
@@ -25,10 +25,10 @@ class linkPedido : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_registro)
+        setContentView(R.layout.activity_link_pedido)
 
 
-        binding = ActivityRegistroBinding.inflate(layoutInflater)
+        binding = ActivityLinkPedidoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         linkBtn = findViewById(R.id.registrue_btn)
@@ -43,13 +43,13 @@ class linkPedido : AppCompatActivity() {
 
             if (email.isNotEmpty()) {
                         val pedido = mapOf(
-                            "email do cuiador" to MainActivity.GlobalData.ultEmail,
+                            "email do cuidador" to MainActivity.GlobalData.ultEmail,
                             "email do idoso" to email)
-                        val pedidoRef = db.collection("Pedidos")
+                        val pedidoRef = db.collection("pedidos")
                         pedidoRef.document().set(pedido)
                         //colocar nome do documento desejado dentro de document(''Email'')
 
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, menuCuidador::class.java)
                         startActivity(intent)
 
             } else {

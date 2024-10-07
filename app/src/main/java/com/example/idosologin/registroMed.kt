@@ -55,7 +55,7 @@ class registroMed : AppCompatActivity() {
             val medRef = db.collection("medicamento")
             medRef.document("$medName").set(medicamento)
 
-            val intent = Intent(this, menuCuidador::class.java)
+            val intent = Intent(this, menuIdoso::class.java)
             startActivity(intent)
 
                 }

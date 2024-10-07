@@ -25,21 +25,21 @@ class Pedidos : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_link_pedido)
+        setContentView(R.layout.activity_pedidos)
 
 
 
-        val linkCollectionRef = firestore.collection("medicamento")
+        val linkCollectionRef = firestore.collection("pedidos")
 
         val lista = arrayOf<String>()
         val mutableList = lista.toMutableList()
         linkCollectionRef.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    if (document.contains("Criador do medicamento")) {
-                        val nombreCriador = document.getString(("Criador do medicamento"))
-                        if (nombreCriador == MainActivity.GlobalData.ultName) {
-                            val nombre = document.getString("Nome")
+                    if (document.contains("email do cuidador")) {
+                        val nombreCriador = document.getString("email do cuidador")
+                        if (nombreCriador == MainActivity.GlobalData.ultEmail) {
+                            val nombre = document.getString("email do idoso")
                             mutableList.add("$nombre")
                         }
                     }
@@ -58,14 +58,6 @@ class Pedidos : AppCompatActivity() {
 
                 // quando clica no medicamento específico
                 listView.setOnItemClickListener { parent, view, position, id ->
-
-
-                    MainActivity.GlobalData.ultMedName = trueLista[position]
-
-                    startActivity(Intent(this, MedInfo::class.java))
-                    finish()
-
-
 
                 }
             }

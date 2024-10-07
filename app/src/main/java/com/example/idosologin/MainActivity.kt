@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
                                                 }
 
 
-                                            val intent = Intent(this, menuCuidador::class.java)
+                                            val intent = Intent(this, menuIdoso::class.java)
                                             startActivity(intent)
                                             finish()
                                         }

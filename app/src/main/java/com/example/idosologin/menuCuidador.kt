@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.idosologin.R.id.regMedbtn2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,8 +21,8 @@ class menuCuidador : AppCompatActivity() {
     private lateinit var updateEmailButton: Button
     private lateinit var deleteAccountButton: Button
     private lateinit var logoutButton: Button
-    private lateinit var medRegButton: Button
-    private lateinit var medButton: Button
+    private lateinit var linkButton: Button
+    private lateinit var linkSeeButton: Button
 
     val db = FirebaseFirestore.getInstance()
 
@@ -39,8 +38,8 @@ class menuCuidador : AppCompatActivity() {
         updateEmailButton = findViewById(R.id.btnUpdateEmail)
         deleteAccountButton = findViewById(R.id.btnDeleteAccount)
         logoutButton = findViewById(R.id.btnLogout)
-        medRegButton = findViewById(regMedbtn2)
-        medButton = findViewById(R.id.Medbtn2)
+        linkButton = findViewById(R.id.linkBtn)
+        linkSeeButton = findViewById(R.id.linkSeeBtn)
 
 
 
@@ -86,12 +85,12 @@ class menuCuidador : AppCompatActivity() {
         }
 
 
-        medButton.setOnClickListener {
-            startActivity(Intent(this, Medicamentos::class.java))
+        linkSeeButton.setOnClickListener {
+            startActivity(Intent(this, Pedidos::class.java))
         }
 
-        medRegButton.setOnClickListener {
-            startActivity(Intent(this, registroMed::class.java))
+        linkButton.setOnClickListener {
+            startActivity(Intent(this, linkPedido::class.java))
 
         }
     }

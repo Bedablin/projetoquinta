@@ -37,7 +37,7 @@ class Medicamentos : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     if (document.contains("Criador do medicamento")) {
-                        val nombreCriador = document.getString(("Criador do medicamento"))
+                        val nombreCriador = document.getString("Criador do medicamento")
                         if (nombreCriador == MainActivity.GlobalData.ultName) {
                             val nombre = document.getString("Nome")
                             mutableList.add("$nombre")
