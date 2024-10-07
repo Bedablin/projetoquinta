@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Idosologin"
         tools:targetApi="31">
         <activity
+            android:name=".Pedidos"
+            android:exported="false" />
+        <activity
+            android:name=".linkPedido"
+            android:exported="false" />
+        <activity
             android:name=".MedInfo"
             android:exported="false" />
         <activity
