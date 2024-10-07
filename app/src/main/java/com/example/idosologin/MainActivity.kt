@@ -69,8 +69,6 @@ class MainActivity : AppCompatActivity() {
                                                         if (document.contains("nome cuidador")) {
                                                             GlobalData.ultName =
                                                                 document.getString("nome cuidador")
-
-
                                                         }
                                                     }
                                                 }
@@ -90,7 +88,19 @@ class MainActivity : AppCompatActivity() {
                                     if (document.contains("flag cuidador")) {
                                         val fieldValue = document.getBoolean("flag cuidador")
                                         if (fieldValue == false) {
-                                            val intent = Intent(this, menuIdoso::class.java)
+                                            val nameRef =
+                                                db.collection("idoso").document("$email")
+                                            nameRef.get()
+                                                .addOnSuccessListener { document ->
+                                                    if (document.exists()) {
+                                                        if (document.contains("nome idoso")) {
+                                                            GlobalData.ultName = document.getString("nome idoso")
+                                                        }
+                                                    }
+                                                }
+
+
+                                            val intent = Intent(this, menuCuidador::class.java)
                                             startActivity(intent)
                                             finish()
                                         }
