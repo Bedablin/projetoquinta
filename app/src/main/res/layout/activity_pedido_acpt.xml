@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="715dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/oldmanlogo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:hint="Um cuidador solicitou uma associação:"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            android:textSize="35sp" />
+
+
+        <TextView
+            android:id="@+id/emailview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:hint="E-mail do Cuidador"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            android:textSize="20dp"
+            android:drawableEnd="@drawable/baseline_email_24"
+            android:drawablePadding="20dp"
+            />
+
+
+
+        <Button
+            android:id="@+id/acceptBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:padding="5dp"
+            android:text="Aceitar"
+            android:textColor="#108FF4"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/declineBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:padding="5dp"
+            android:text="Recusar"
+            android:textColor="#FF0000"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

@@ -50,6 +50,16 @@
         android:textColor="#108FF4" />
 
     <Button
+        android:id="@+id/btnlink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserEmail2"
+        android:layout_marginTop="113dp"
+        android:backgroundTint="@color/white"
+        android:text="Autorizar Cuidadores"
+        android:textColor="#108FF4" />
+
+    <Button
         android:id="@+id/Medbtn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
