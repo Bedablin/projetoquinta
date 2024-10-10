@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/login_background"
+    >
+
+    <TextView
+        android:id="@+id/tvUserEmailLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentStart="true" />
+
+
+
+    <TextView
+        android:id="@+id/etUserEmail2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tvUserEmailLabel2"
+        android:layout_alignBaseline="@id/tvUserEmailLabel2"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="8dp"
+        android:text="Email do idoso"
+        android:textSize="18sp"
+         />
+
+
+    <Button
+        android:id="@+id/btnAnam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserEmail2"
+        android:layout_marginTop="7dp"
+        android:backgroundTint="@color/white"
+        android:text="Gerenciar Anamnese"
+        android:textColor="#108FF4" />
+
+    <Button
+        android:id="@+id/Medbtn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUserEmail2"
+        android:layout_marginTop="215dp"
+        android:backgroundTint="@color/white"
+        android:padding="30dp"
+        android:text="Ver Medicamentos"
+        android:textColor="#108FF4"
+        android:textSize="20dp" />
+
+
+
+
+
+</RelativeLayout>

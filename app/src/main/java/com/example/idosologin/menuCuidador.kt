@@ -86,7 +86,7 @@ class menuCuidador : AppCompatActivity() {
 
 
         linkSeeButton.setOnClickListener {
-            startActivity(Intent(this, Pedidos::class.java))
+            startActivity(Intent(this, Pacientes::class.java))
         }
 
         linkButton.setOnClickListener {

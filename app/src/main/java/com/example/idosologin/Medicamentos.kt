@@ -38,7 +38,7 @@ class Medicamentos : AppCompatActivity() {
                 for (document in documents) {
                     if (document.contains("Criador do medicamento")) {
                         val nombreCriador = document.getString("Criador do medicamento")
-                        if (nombreCriador == MainActivity.GlobalData.ultName) {
+                        if (nombreCriador == MainActivity.GlobalData.ultEmail){
                             val nombre = document.getString("Nome")
                             mutableList.add("$nombre")
                         }

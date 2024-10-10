@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         var ultName: String? = null
         var ultMedName: String? = null
         var ultCuidName: String? = null
+        var ultPacName: String? = null
     }
 
     private lateinit var firebaseAuth: FirebaseAuth

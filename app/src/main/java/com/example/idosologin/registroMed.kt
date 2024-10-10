@@ -42,7 +42,7 @@ class registroMed : AppCompatActivity() {
             val dosage = binding.dosageInput.text.toString()
             val duration = binding.durationInput.text.toString()
             val info = binding.infoInput.text.toString()
-            val creator = MainActivity.GlobalData.ultName
+            val creator = MainActivity.GlobalData.ultEmail
             val db = Firebase.firestore
 
 
