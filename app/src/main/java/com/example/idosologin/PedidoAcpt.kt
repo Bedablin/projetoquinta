@@ -50,6 +50,7 @@ class PedidoAcpt : AppCompatActivity() {
         AcceptBtn.setOnClickListener {
 
             val email = MainActivity.GlobalData.ultEmail.toString()
+            val cuidemail = MainActivity.GlobalData.ultCuidName.toString()
             val db = Firebase.firestore
 
 
@@ -59,6 +60,12 @@ class PedidoAcpt : AppCompatActivity() {
             val pedidoRef = db.collection("idoso")
             pedidoRef.document(email).update(idoso)
             //colocar nome do documento desejado dentro de document(''Email'')
+
+            val cuidador = mapOf(
+                "Pacientes" to MainActivity.GlobalData.ultEmail
+            )
+            val pedidoCRef = db.collection("cuidador")
+            pedidoCRef.document(cuidemail).update(cuidador)
 
 
 
